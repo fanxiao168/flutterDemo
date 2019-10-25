@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'res/listData.dart';
+
 /*
 一、Flutter 列表组件概述
 列表布局是我们项目开发中最常用的一种布局方式。Flutter 中我们可以通过 ListView 来定义 列表项，支持垂直和水平方向展示。通过一个属性就可以控制列表的显示方向。列表有一下 分类:
@@ -36,25 +36,29 @@ class MyApp extends StatelessWidget{
   }
 }
 
+
+
 class HomeContent extends StatelessWidget{
 
-  List list = new List();
-  HomeContent(){
-    for(var i=0;i<20;i++){
-      this.list.add("我是第$i条");
-    }
-  }
+  //自定义方法
+List<Widget> _getData(){
+  return [
+    ListTile(
+      title: Text("我是一个列表"),
+    ),
+    ListTile(
+      title: Text("我是一个列表"),
+    ),
+    ListTile(
+      title: Text("我是一个列"),
+    ),
+  ];
+}
 
-//ListView.builder的使用
   @override
   Widget build(BuildContext context){
-    return ListView.builder(
-      itemCount: this.list.length,
-      itemBuilder: (context,index){
-        return ListTile(
-          title: Text(this.list[index]),
-        );
-      },
+    return ListView(
+      children: this._getData(),
     );
   }
 }

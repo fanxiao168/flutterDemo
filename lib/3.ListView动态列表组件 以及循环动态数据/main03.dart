@@ -38,23 +38,23 @@ class MyApp extends StatelessWidget{
 
 class HomeContent extends StatelessWidget{
 
-  List list = new List();
-  HomeContent(){
-    for(var i=0;i<20;i++){
-      this.list.add("我是第$i条");
-    }
-  }
+  //自定义方法
+List<Widget> _getData(){
+  var tempList=listData.map((value){
+    return ListTile(
+      leading: Image.network(value["imageUrl"]),
+      title: Text(value["title"]),
+      subtitle: Text("author"),
+    );
+  });
+  //('12412','12421')
+  return tempList.toList();
+}
 
-//ListView.builder的使用
   @override
   Widget build(BuildContext context){
-    return ListView.builder(
-      itemCount: this.list.length,
-      itemBuilder: (context,index){
-        return ListTile(
-          title: Text(this.list[index]),
-        );
-      },
+    return ListView(
+      children: this._getData(),
     );
   }
 }
