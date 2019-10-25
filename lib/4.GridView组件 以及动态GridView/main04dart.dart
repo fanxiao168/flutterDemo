@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('flutter mo'),
+          title: Text('flutter demo'),
         ),
         body: LayoutDemo(),
       ),
@@ -44,44 +44,41 @@ class MyApp extends StatelessWidget {
 }
 
 class LayoutDemo extends StatelessWidget {
-
-Widget _getListData(context,index){
-  return Container(
-    child: Column(
-      children: <Widget>[
-        Image.network(listData[index]['imageUrl']),
-        SizedBox(height: 10),
-        Text(
-          listData[index]["title"],
-          textAlign:TextAlign.center,
-          style:TextStyle(
-            fontSize:15
+  List<Widget> _getListData() {
+    var tempList = listData.map((value) {
+      return Container(
+          child: Column(
+            children: <Widget>[
+              Image.network(value["imageUrl"]),
+              SizedBox(height: 20),
+              Text(
+              value["title"],
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 18),
+              )
+            ],
           ),
-        )
-      ],
-    ),
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: Color.fromRGBO(233, 233, 233, 0.9),
-        width: 1
-      )
-    ),
-  );
-}
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Color.fromRGBO(233, 233, 233, 1),
+              width: 1
+            )
+          ),
+        );
+    });
+    //("xxxxx","xxxx")
+    return tempList.toList();
+  }
 
-//gridDelegate: SliverGridDelegateWithFixedCrossAxisCount 的使用
   @override
   Widget build(BuildContext context) {
-
-    return GridView.builder(
-      //注意:
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisSpacing: 10, //水平子 Widget 之间间距
-        mainAxisSpacing: 10, //垂直子 Widget 之间间距
-        crossAxisCount: 2, //一行的 Widget 数量
-      ),
-      itemCount:listData.length,
-      itemBuilder: this._getListData,
+    return GridView.count(
+      crossAxisSpacing: 10, //水平子 Widget 之间间距
+      mainAxisSpacing: 10, //垂直子 Widget 之间间距
+      padding: EdgeInsets.all(10),
+      crossAxisCount: 2, //一行的 Widget 数量
+      childAspectRatio: 0.9, //宽度和高度的比例
+      children: this._getListData(),
     );
   }
 }

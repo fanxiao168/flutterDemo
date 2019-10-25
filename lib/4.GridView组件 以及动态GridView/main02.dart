@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'res/listData.dart';
 
 /*
 一、Flutter 列表组件概述
@@ -27,61 +26,50 @@ gridDelegate            SliverGridDelegateWithFixedCrossAxisCount(常用)
                         SliverGridDelegateWithMax                       控制布局主要用在 GridView.builder 里面
 */
 
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
+    
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('flutter mo'),
+          title: Text('flutter demo'),
         ),
         body: LayoutDemo(),
-      ),
-    );
+        ),
+    );   
   }
 }
 
-class LayoutDemo extends StatelessWidget {
+class LayoutDemo extends StatelessWidget{
 
-Widget _getListData(context,index){
-  return Container(
-    child: Column(
-      children: <Widget>[
-        Image.network(listData[index]['imageUrl']),
-        SizedBox(height: 10),
-        Text(
-          listData[index]["title"],
-          textAlign:TextAlign.center,
-          style:TextStyle(
-            fontSize:15
-          ),
-        )
-      ],
-    ),
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: Color.fromRGBO(233, 233, 233, 0.9),
-        width: 1
-      )
-    ),
-  );
-}
-
-//gridDelegate: SliverGridDelegateWithFixedCrossAxisCount 的使用
+  List<Widget> _getListData(){
+    List<Widget> list = new List();
+    for(var i=0;i < 20; i++){
+      list.add(Container(
+        alignment: Alignment.center,
+        child: Text(
+          '这是第$i条数据',
+          style:TextStyle(color: Colors.white,fontSize: 20)
+        ),
+        color: Colors.blue,
+        // height: 800, //设置高度没有反应
+      ));
+    }
+    return list;
+  }
   @override
-  Widget build(BuildContext context) {
-
-    return GridView.builder(
-      //注意:
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisSpacing: 10, //水平子 Widget 之间间距
-        mainAxisSpacing: 10, //垂直子 Widget 之间间距
-        crossAxisCount: 2, //一行的 Widget 数量
-      ),
-      itemCount:listData.length,
-      itemBuilder: this._getListData,
+  Widget build(BuildContext context){
+    return GridView.count(
+      crossAxisSpacing: 10, //水平子 Widget 之间间距
+      mainAxisSpacing: 10,  //垂直子 Widget 之间间距
+      padding: EdgeInsets.all(10),
+      crossAxisCount: 2,    //一行的 Widget 数量
+      childAspectRatio: 0.9, //宽度和高度的比例
+      children: this._getListData(),
     );
   }
 }

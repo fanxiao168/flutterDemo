@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'res/listData.dart';
 
 /*
 一、Flutter 列表组件概述
@@ -27,61 +26,41 @@ gridDelegate            SliverGridDelegateWithFixedCrossAxisCount(常用)
                         SliverGridDelegateWithMax                       控制布局主要用在 GridView.builder 里面
 */
 
+
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget{
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
+    
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('flutter mo'),
+          title: Text('flutter demo'),
         ),
         body: LayoutDemo(),
-      ),
-    );
+        ),
+    );   
   }
 }
 
-class LayoutDemo extends StatelessWidget {
+class LayoutDemo extends StatelessWidget{
 
-Widget _getListData(context,index){
-  return Container(
-    child: Column(
-      children: <Widget>[
-        Image.network(listData[index]['imageUrl']),
-        SizedBox(height: 10),
-        Text(
-          listData[index]["title"],
-          textAlign:TextAlign.center,
-          style:TextStyle(
-            fontSize:15
-          ),
-        )
-      ],
-    ),
-    decoration: BoxDecoration(
-      border: Border.all(
-        color: Color.fromRGBO(233, 233, 233, 0.9),
-        width: 1
-      )
-    ),
-  );
-}
-
-//gridDelegate: SliverGridDelegateWithFixedCrossAxisCount 的使用
   @override
-  Widget build(BuildContext context) {
-
-    return GridView.builder(
-      //注意:
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisSpacing: 10, //水平子 Widget 之间间距
-        mainAxisSpacing: 10, //垂直子 Widget 之间间距
-        crossAxisCount: 2, //一行的 Widget 数量
-      ),
-      itemCount:listData.length,
-      itemBuilder: this._getListData,
+  Widget build(BuildContext context){
+    return GridView.count(
+      crossAxisCount: 2, //一行的 Widget 数量
+      children: <Widget>[
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+        Text("这是一个文本"),
+      ],
     );
   }
 }
