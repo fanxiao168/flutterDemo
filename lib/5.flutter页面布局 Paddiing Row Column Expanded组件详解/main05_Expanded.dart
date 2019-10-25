@@ -49,55 +49,41 @@ class MyApp extends StatelessWidget {
 
 class LayoutDemo extends StatelessWidget {
   @override
-  Widget build(BuildContext context){
-    return Column(
+  Widget build(BuildContext context) {
+    return Row(
       children: <Widget>[
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                height: 180,
-                color: Colors.black,
-                child: Text("你好Flutter",style: TextStyle(
-                  color: Colors.red
-                ),),
-              ),
-            )
-          ],
+        Expanded(
+          flex: 1,
+          child: IconContainer(Icons.search,color:Colors.blue),
         ),
-        
-        Row(
-          children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                height: 180,
-                child: Image.network("https://www.itying.com/images/flutter/2.png",fit:BoxFit.cover),
-              ),
-            ),
-            SizedBox(width: 10),
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 180,
-                child: ListView(
-                  children: <Widget>[
-                    Container(
-                      height: 85,
-                      child: Image.network("https://www.itying.com/images/flutter/3.png",fit:BoxFit.cover),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      height: 85,
-                      child: Image.network("https://www.itying.com/images/flutter/4.png",fit:BoxFit.cover),
-                    )
-                  ]
-                ),
-              ),
-            ),
-          ],
-        )
+        Expanded(
+          flex: 1,
+          child: IconContainer(Icons.home,color:Colors.orange),
+        ),
+        Expanded(
+          flex: 1,
+          child: IconContainer(Icons.select_all,color:Colors.red),
+        ),
       ],
+    );
+  }
+}
+
+class IconContainer extends StatelessWidget {
+  double size=32.0;
+  Color color=Colors.red;
+  IconData icon;
+  IconContainer(this.icon,{this.color,this.size});
+
+  @override
+  Widget build(BuildContext context){
+    return Container(
+      height: 100,
+      width: 100,
+      color: this.color,
+      child: Center(
+        child: Icon(this.icon,size:this.size,color:Colors.white),
+      ),
     );
   }
 }

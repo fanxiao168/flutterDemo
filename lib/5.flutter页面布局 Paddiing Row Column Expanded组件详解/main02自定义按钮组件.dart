@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/semantics.dart';
 
 /*
 一、Flutter Paddiing 组件
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('flutter Demo'),
+          title: Text('flutter mode'),
         ),
         body: LayoutDemo(),
       ),
@@ -49,55 +49,26 @@ class MyApp extends StatelessWidget {
 
 class LayoutDemo extends StatelessWidget {
   @override
+  Widget build(BuildContext context) {
+    return IconContainer(Icons.search,color:Colors.black);
+  }
+}
+
+class IconContainer extends StatelessWidget {
+  double size=32.0;
+  Color color=Colors.red;
+  IconData icon;
+  IconContainer(this.icon,{this.color,this.size});
+
+  @override
   Widget build(BuildContext context){
-    return Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                height: 180,
-                color: Colors.black,
-                child: Text("你好Flutter",style: TextStyle(
-                  color: Colors.red
-                ),),
-              ),
-            )
-          ],
-        ),
-        
-        Row(
-          children: <Widget>[
-            Expanded(
-              flex: 2,
-              child: Container(
-                height: 180,
-                child: Image.network("https://www.itying.com/images/flutter/2.png",fit:BoxFit.cover),
-              ),
-            ),
-            SizedBox(width: 10),
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 180,
-                child: ListView(
-                  children: <Widget>[
-                    Container(
-                      height: 85,
-                      child: Image.network("https://www.itying.com/images/flutter/3.png",fit:BoxFit.cover),
-                    ),
-                    SizedBox(height: 10),
-                    Container(
-                      height: 85,
-                      child: Image.network("https://www.itying.com/images/flutter/4.png",fit:BoxFit.cover),
-                    )
-                  ]
-                ),
-              ),
-            ),
-          ],
-        )
-      ],
+    return Container(
+      height: 100,
+      width: 100,
+      color: this.color,
+      child: Center(
+        child: Icon(this.icon,size:this.size,color:Colors.white),
+      ),
     );
   }
 }
