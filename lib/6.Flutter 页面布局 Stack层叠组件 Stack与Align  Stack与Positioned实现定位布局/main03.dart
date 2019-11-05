@@ -53,17 +53,16 @@ class LayoutDemo extends StatelessWidget {
         color: Colors.red,
         child: Stack(
           children: <Widget>[
-            Positioned(
-              left: 0,
+            Align(
+              alignment: Alignment(1, -0.2),
               child: Icon(Icons.home,size:40,color:Colors.white),
             ),
-            Positioned(
-              bottom: 0,
-              right: 0,
+            Align(
+              alignment: Alignment.center,
               child: Icon(Icons.search,size:30,color:Colors.white),
             ),
-            Positioned(
-              right: 10,
+            Align(
+              alignment: Alignment.bottomRight,
               child: Icon(Icons.settings_applications,size:30,color:Colors.white),
             ),
           ],

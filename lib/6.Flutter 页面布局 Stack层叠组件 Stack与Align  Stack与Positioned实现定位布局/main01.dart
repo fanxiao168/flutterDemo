@@ -47,27 +47,19 @@ class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Center(
-      child: Container(
-        height: 400,
-        width: 300,
-        color: Colors.red,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              left: 0,
-              child: Icon(Icons.home,size:40,color:Colors.white),
-            ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              child: Icon(Icons.search,size:30,color:Colors.white),
-            ),
-            Positioned(
-              right: 10,
-              child: Icon(Icons.settings_applications,size:30,color:Colors.white),
-            ),
-          ],
-        ),
+      child: Stack(
+        alignment: Alignment.topLeft,
+        children: <Widget>[
+          Container(
+            height: 400,
+            width: 300,
+            color: Colors.red,
+          ),
+          Text('我是一个文本',style:TextStyle(
+            fontSize:40,
+            color:Colors.white
+          )),
+        ],
       ),
     );
   }
