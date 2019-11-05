@@ -40,13 +40,15 @@ class MyApp extends StatelessWidget {
 class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context){
-    return Wrap(
+    return Container(
+      height: 600,
+      width: 414,
+      color: Colors.pink,
+      padding: EdgeInsets.all(10),
+      child: Wrap(
         spacing: 10,
-        runSpacing: 5,
-        // direction: Axis.vertical,
-        // alignment: WrapAlignment.start,
-        // runAlignment:WrapAlignment.center,
-        
+        runSpacing: 0,
+        direction: Axis.horizontal,
         children: <Widget>[
 
           MyButton("第1集"),
@@ -63,7 +65,8 @@ class LayoutDemo extends StatelessWidget {
           MyButton("第12集"),
 
         ],
-      );
+      ),
+    );
   }
 }
 

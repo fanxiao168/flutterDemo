@@ -41,29 +41,23 @@ class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return Wrap(
-        spacing: 10,
-        runSpacing: 5,
-        // direction: Axis.vertical,
-        // alignment: WrapAlignment.start,
-        // runAlignment:WrapAlignment.center,
-        
-        children: <Widget>[
-
-          MyButton("第1集"),
-          MyButton("第2集"),
-          MyButton("第3集"),
-          MyButton("第4集"),
-          MyButton("第5集"),
-          MyButton("第6集"),
-          MyButton("第7集"),
-          MyButton("第8集"),
-          MyButton("第9集"),
-          MyButton("第10集"),
-          MyButton("第11集"),
-          MyButton("第12集"),
-
-        ],
-      );
+      spacing: 10,
+      runSpacing: 10,
+      children: <Widget>[
+        MyButton("第1集"),
+        MyButton("第2集"),
+        MyButton("第3集"),
+        MyButton("第4集"),
+        MyButton("第5集"),
+        MyButton("第6集"),
+        MyButton("第7集"),
+        MyButton("第8集"),
+        MyButton("第9集"),
+        MyButton("第10集"),
+        MyButton("第11集"),
+        MyButton("第12集"),
+      ],
+    );
   }
 }
 
