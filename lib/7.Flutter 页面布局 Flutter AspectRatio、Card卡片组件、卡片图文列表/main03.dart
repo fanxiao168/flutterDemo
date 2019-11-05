@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'res/listData.dart';
 
 
 /*
@@ -43,27 +42,65 @@ class LayoutDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context){
     return  ListView(
-        children: listData.map((value){
-          return Card(
+        children: <Widget>[
+          Card(
             margin: EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
-                AspectRatio(
-                  aspectRatio: 20/9,
-                  child:Image.network(value["imageUrl"],fit: BoxFit.cover),
+                ListTile(
+                  title: Text("张三",style:TextStyle(fontSize:28)),
+                  subtitle: Text("高级工程师"),
                 ),
                 ListTile(
-                  leading: CircleAvatar(
-                    backgroundImage: NetworkImage(value["imageUrl"]),
-                  ),
-                  title: Text(value["title"]),
-                  subtitle: Text(value["description"],maxLines:1, overflow: TextOverflow.ellipsis,),
+                  title: Text("电话:xxxx"),
                 ),
-
+                ListTile(
+                  title: Text("地址:xxxxxx"),
+                )
+                
               ],
             ),
-          );
-        }).toList(),
+          ),
+             Card(
+            margin: EdgeInsets.all(10),
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: Text("李四",style:TextStyle(fontSize:28)),
+                  subtitle: Text("高级工程师"),
+                ),
+                ListTile(
+                  title: Text("电话:xxxx"),
+                ),
+                ListTile(
+                  title: Text("地址:xxxxxx"),
+                )
+                
+              ],
+            ),
+          ),
+             Card(
+            margin: EdgeInsets.all(10),
+            child: Column(
+              children: <Widget>[
+                ListTile(
+                  title: Text("王五",style:TextStyle(fontSize:28)),
+                  subtitle: Text("高级工程师"),
+                ),
+                ListTile(
+                  title: Text("电话:xxxx"),
+                ),
+                ListTile(
+                  title: Text("地址:xxxxxx"),
+                ),
+                ListTile(
+                  title: Text("产品CFO"),
+                )
+              ],
+            ),
+          ),
+
+        ],
     );
   }
 }
