@@ -25,37 +25,32 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//自定义有状态组件
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  List list = new List();
+  int countNum = 1;
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
        children: <Widget>[
-         Column(
-           children: this.list.map((value){
-             return ListTile(
-               title: Text(value),
-             );
-           }).toList(),
+         SizedBox(height: 200),
+         Chip(
+           label: Text("${this.countNum}"),
          ),
          SizedBox(height: 20),
          RaisedButton(
            child: Text("按钮"),
            onPressed: (){
              setState(() {
-               this.list.add("新增数据1");
-               this.list.add("新增数据2");
+               this.countNum++;
              });
            },
          )
-        
        ],
     );
   }
