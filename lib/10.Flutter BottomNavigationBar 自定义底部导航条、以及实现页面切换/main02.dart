@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Tabs extends StatefulWidget {
-  Tabs({Key key}) : super(key: key);
+  Tabs({Key key, int index}) : super(key: key);
 
   @override
   _TabsState createState() => _TabsState();
