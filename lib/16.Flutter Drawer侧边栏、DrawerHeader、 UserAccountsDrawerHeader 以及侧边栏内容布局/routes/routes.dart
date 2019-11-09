@@ -14,7 +14,6 @@ import '../pages/TabBarController.dart';
 import '../pages/User.dart';
 import '../pages/setting.dart';
 import '../pages/userSpace.dart';
-import '../pages/buttonDemo.dart';
 
 
 //配置路由
@@ -33,8 +32,6 @@ final routes = {
     "/user":(context,{arguments})=>UserPage(),
     "/setting":(context,{arguments})=>SettingPage(),
     "/userSpace":(context,{arguments})=>UserSpacePage(),
-    "/buttonDemo":(context)=>ButtonDemoPage(),
-
 };
 
 //固定写法
