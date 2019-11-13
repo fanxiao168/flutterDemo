@@ -26,27 +26,6 @@ class _TabsState extends State<Tabs> {
       // appBar: AppBar(
       //   title: Text("Flutter Demo"),
       // ),
-      floatingActionButton: Container(
-        height:80,
-        width:80,
-        padding: EdgeInsets.all(8),
-        margin: EdgeInsets.only(top: 10),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40),
-          color:Colors.white,
-        ),
-        child: FloatingActionButton(
-          child: Icon(Icons.add),
-          onPressed: () {
-            setState(() {
-              this._currentIndex = 1;
-            });
-            print("FloatingActionButton");
-          },
-          backgroundColor: this._currentIndex == 1 ? Colors.red:Colors.yellow,
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: this._pageList[this._currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: this._currentIndex, //配置对应的索引值选中
@@ -87,14 +66,14 @@ class _TabsState extends State<Tabs> {
                     accountName: Text("大地老师"),
                     accountEmail: Text("dadi@itying.com"),
                     currentAccountPicture: CircleAvatar(
-                      backgroundImage: NetworkImage(
-                          "https://itying.com/images/flutter/3.png"),
+                      backgroundImage: NetworkImage("https://itying.com/images/flutter/3.png"),
                     ),
                     decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://itying.com/images/flutter/2.png"),
-                            fit: BoxFit.cover)),
+                      image: DecorationImage(
+                        image: NetworkImage("https://itying.com/images/flutter/2.png"),
+                        fit: BoxFit.cover
+                      )
+                    ),
                     otherAccountsPictures: <Widget>[
                       Image.network("https://itying.com/images/flutter/4.png"),
                       Image.network("https://itying.com/images/flutter/6.png"),
@@ -108,7 +87,7 @@ class _TabsState extends State<Tabs> {
                 child: Icon(Icons.home),
               ),
               title: Text("我的空间"),
-              onTap: () {
+              onTap: (){
                 Navigator.of(context).pop();
                 Navigator.of(context).pushNamed("/userSpace");
               },
@@ -119,7 +98,7 @@ class _TabsState extends State<Tabs> {
                 child: Icon(Icons.people),
               ),
               title: Text("用户中心"),
-              onTap: () {
+              onTap: (){
                 Navigator.of(context).pop();
                 Navigator.of(context).pushNamed("/user");
               },
@@ -130,7 +109,7 @@ class _TabsState extends State<Tabs> {
                 child: Icon(Icons.settings),
               ),
               title: Text("设置中心"),
-              onTap: () {
+                onTap: (){
                 Navigator.of(context).pop();
                 Navigator.of(context).pushNamed("/setting");
               },
